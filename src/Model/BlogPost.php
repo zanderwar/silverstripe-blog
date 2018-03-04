@@ -755,6 +755,20 @@ class BlogPost extends Page
         }
         return !empty($this->PublishDate) ? $this->PublishDate : null;
     }
+    
+    /**
+     * Provides a rough estimate of how long this post will take to read based on wikipedias answer to "How fast can a
+     * human read" of 200wpm. Source https://en.wikipedia.org/wiki/Speed_reading
+     *
+     * @return string
+     */
+    public function getMinutesToRead()
+    {
+        $wpm = 200;
+        $wordCount = count(array_filter(explode(" ", strip_tags($this->Content))));
+
+        return round($wordCount / $wpm, 0);
+    }
 
     /**
      * {@inheritdoc}

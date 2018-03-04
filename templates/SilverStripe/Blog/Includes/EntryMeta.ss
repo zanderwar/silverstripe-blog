@@ -36,4 +36,6 @@
             <% end_if %>
         <% end_loop %>
     <% end_if %>
+    
+    $MinutesToRead <%t SilverStripe\\Blog\\Model\\Blog.MinutesToRead "Minute(s) to Read" %>
 </p>
